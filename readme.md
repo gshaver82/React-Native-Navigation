@@ -1,0 +1,1 @@
+simple app demonstrating react native navigation
