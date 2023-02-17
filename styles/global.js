@@ -1,10 +1,10 @@
 import { StyleSheet } from 'react-native';
 
 export const globalStyles = StyleSheet.create({
-  header: {
+  headerStyle: {
     backgroundColor: 'teal',
   },
-  headertitle: {
+  headerTitleStyle: {
     fontWeight: '800',
     fontSize: 40,
     color: 'white', 

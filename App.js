@@ -15,8 +15,8 @@ function App() {
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Home"
         screenOptions={{
-          headerStyle: globalStyles.header,          
-          headerTitleStyle: globalStyles.headertitle,          
+          headerStyle: globalStyles.headerStyle,          
+          headerTitleStyle: globalStyles.headerTitleStyle,          
           headerTitleAlign: 'center',
         }}>
         <Stack.Screen
