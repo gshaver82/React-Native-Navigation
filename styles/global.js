@@ -2,7 +2,13 @@ import { StyleSheet } from 'react-native';
 
 export const globalStyles = StyleSheet.create({
   header: {
-    backgroundColor: 'red',
+    backgroundColor: 'teal',
+  },
+  headertitle: {
+    fontWeight: '800',
+    fontSize: 40,
+    color: 'white', 
+    backgroundColor: 'white',
   },
   titleText: {
     fontSize: 18,
@@ -15,15 +21,24 @@ export const globalStyles = StyleSheet.create({
     alignSelf: 'center',
     justifyContent: 'flex-start',
   },
-  button: {
+  TouchableOpacitybutton: {
     backgroundColor: 'blue',
-    padding: 7,
+    padding: 9,
     borderRadius: 5,
     alignItems: 'center',
     margin:15
   },
   buttonText: {
     color: 'white',
+    fontSize: 35, 
+    fontWeight: '500',
+    textAlign: 'center',
   },
-
+  screenTitle: {
+    fontWeight: '900',
+    fontSize: 40,
+    alignSelf: 'center',
+    fontFamily: 'System', // or any other bold font family that you want to use
+  },
+  
 });

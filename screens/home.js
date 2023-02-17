@@ -7,7 +7,7 @@ import { AntDesign } from '@expo/vector-icons';
 export default function HomeScreen({ navigation }) {
     return (
         <View style={globalStyles.container}>
-            <Text>Home Screen</Text>
+            <Text style={globalStyles.screenTitle}>Home Screen</Text>
             <Button
                 title="Go to Details"
                 onPress={() => {
@@ -17,14 +17,14 @@ export default function HomeScreen({ navigation }) {
             />
 
             <TouchableOpacity
-                style={[globalStyles.button, { flexDirection: 'row' }]}
+                style={[globalStyles.TouchableOpacitybutton, { flexDirection: 'row' }]}
                 onPress={() => {
                     navigation.navigate('Example', {
                         itemId: 86,
                         otherParam: 'anything you want here',
                     });
                 }}>
-                <AntDesign name="infocirlce" size={24} color="black" style={{ marginRight: 10 }} />
+                <AntDesign name="infocirlce" size={24} color="white" style={{ marginRight: 10 }} />
                 <Text  style={globalStyles.buttonText}>Go to ExampleScreen</Text>
             </TouchableOpacity>
 

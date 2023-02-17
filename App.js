@@ -13,14 +13,16 @@ const Stack = createNativeStackNavigator();
 function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Home">
+      <Stack.Navigator initialRouteName="Home"
+        screenOptions={{
+          headerStyle: globalStyles.header,          
+          headerTitleStyle: globalStyles.headertitle,          
+          headerTitleAlign: 'center',
+        }}>
         <Stack.Screen
           name="Home"
           component={HomeScreen}
-          options={{ 
-            title: 'Overview',
-            headerStyle: globalStyles.header
-          }}
+          options={{ title: 'Overview', }}
         />
         <Stack.Screen
           name="Details"
