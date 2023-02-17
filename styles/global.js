@@ -1,26 +1,29 @@
 import { StyleSheet } from 'react-native';
 
 export const globalStyles = StyleSheet.create({
+  header: {
+    backgroundColor: 'red',
+  },
   titleText: {
     fontSize: 18,
     fontWeight: 'bold',
     color: '#333',
   },
-  paragraph: {
-    marginVertical: 8,
-    lineHeight: 20,
-  },
   container: {
     flex: 1,
     padding: 20,
+    alignSelf: 'center',
+    justifyContent: 'flex-start',
   },
   button: {
     backgroundColor: 'blue',
-    padding: 10,
+    padding: 7,
     borderRadius: 5,
     alignItems: 'center',
+    margin:15
   },
-  header: {
-    backgroundColor: 'red',
+  buttonText: {
+    color: 'white',
   },
+
 });

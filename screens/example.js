@@ -8,7 +8,7 @@ export default function ExampleScreen({ route, navigation }) {
         <View style={globalStyles.container}>
             <Text style={globalStyles.titleText}>itemId: {JSON.stringify(route.params.itemId)}</Text>
             <Text>otherParam: {JSON.stringify(otherParam)}</Text>
-            <Button
+            <Button            
                 title="Go back to home"
                 onPress={() => navigation.navigate('Home')}
             />
