@@ -1,28 +1,32 @@
 
-import { View, Text, Button } from 'react-native';
+import { View, Text, Button, TouchableOpacity } from 'react-native';
 import { globalStyles } from '../styles/global';
 
 export default function HomeScreen({ navigation }) {
     return (
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
             <Text>Home Screen</Text>
-            <Button
+            <Button style={globalStyles.button}
                 title="Go to Details"
                 onPress={() => {
                     console.log('details button pushed');
                     navigation.navigate('Details');
                 }}
             />
-            <Button
-                title="Go to ExampleScreen"
+
+            <TouchableOpacity
+                style={globalStyles.button}
                 onPress={() => {
-                    /* 1. Navigate to the Details route with params */
                     navigation.navigate('Example', {
                         itemId: 86,
                         otherParam: 'anything you want here',
                     });
-                }}
-            />
+                }}>
+                <Text style={{ color: 'white' }}>Go to ExampleScreen</Text>
+            </TouchableOpacity>
+
+
+
         </View>
     );
 }

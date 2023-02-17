@@ -6,6 +6,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import ExampleScreen from './screens/example'
 import HomeScreen from './screens/home'
 import DetailsScreen from './screens/details'
+import { globalStyles } from './styles/global';
 
 const Stack = createNativeStackNavigator();
 
@@ -16,10 +17,21 @@ function App() {
         <Stack.Screen
           name="Home"
           component={HomeScreen}
-          options={{ title: 'Overview' }}
+          options={{ 
+            title: 'Overview',
+            headerStyle: globalStyles.header
+          }}
         />
-        <Stack.Screen name="Details" component={DetailsScreen} />
-        <Stack.Screen name="Example" component={ExampleScreen} />
+        <Stack.Screen
+          name="Details"
+          component={DetailsScreen}
+          options={{ title: 'Details' }}
+        />
+        <Stack.Screen
+          name="Example"
+          component={ExampleScreen}
+          options={{ title: 'Example' }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

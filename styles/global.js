@@ -14,4 +14,13 @@ export const globalStyles = StyleSheet.create({
     flex: 1,
     padding: 20,
   },
+  button: {
+    backgroundColor: 'blue',
+    padding: 10,
+    borderRadius: 5,
+    alignItems: 'center',
+  },
+  header: {
+    backgroundColor: 'red',
+  },
 });
