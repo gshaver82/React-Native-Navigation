@@ -16,12 +16,13 @@ export default function ExampleScreen() {
 
     const handlePicker = (event, selectedDate) => {
         setShowPicker(Platform.OS === 'ios');
-        if (selectedDate) {
-            // const formattedDate = moment(selectedDate).format('h:mm A');
+        if (selectedDate && event.type ==="set" && Platform.OS === 'android') {
+            setalarmArray([...alarmArray, selectedDate]);
+        }
+        if (selectedDate && event.type ==="dismissed" && Platform.OS === 'ios') {
             setalarmArray([...alarmArray, selectedDate]);
         }
     };
-
     const keyExtractor = (item, index) => {
         return index.toString();
     };
@@ -36,6 +37,7 @@ export default function ExampleScreen() {
                     is24Hour={false}
                     display="default"
                     onChange={handlePicker}
+                    textColor="red" 
                 />
             )}
             <Button title="Set Time" onPress={() => setShowPicker(true)} />
