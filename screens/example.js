@@ -7,7 +7,6 @@ import moment from 'moment';
 
 export default function ExampleScreen() {
 
-    const [date, setDate] = useState(new Date());
     const [showPicker, setShowPicker] = useState(false);
     const [alarmArray, setalarmArray] = useState([]);
 
@@ -18,8 +17,8 @@ export default function ExampleScreen() {
     const handlePicker = (event, selectedDate) => {
         setShowPicker(Platform.OS === 'ios');
         if (selectedDate) {
-            const formattedDate = moment(selectedDate).format('HH:mm');
-            setalarmArray([...alarmArray, formattedDate]);
+            // const formattedDate = moment(selectedDate).format('h:mm A');
+            setalarmArray([...alarmArray, selectedDate]);
         }
     };
 
@@ -32,7 +31,7 @@ export default function ExampleScreen() {
             <Text style={globalStyles.screenTitle}>Example screen</Text>
             {showPicker && (
                 <DateTimePicker
-                    value={date}
+                    value={new Date()}
                     mode="time"
                     is24Hour={false}
                     display="default"
@@ -42,12 +41,12 @@ export default function ExampleScreen() {
             <Button title="Set Time" onPress={() => setShowPicker(true)} />
             {alarmArray.length > 0 ? (
                 <FlatList
-                    data={alarmArray}
+                    data={alarmArray.sort((a, b) => moment(a, 'h:mm A').diff(moment(b, 'h:mm A')))}
                     keyExtractor={keyExtractor}
                     renderItem={({ item }) => (
                         <TouchableOpacity onPress={() => console.log("pressed item")}>
                             <Card>
-                                <Text style={globalStyles.alarmText}>{item}</Text>
+                                <Text style={globalStyles.alarmText}>{moment(item, 'h:mm A').format('h:mm A')}</Text>
                             </Card>
                         </TouchableOpacity>
                     )}

@@ -1,4 +1,6 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Dimensions  } from 'react-native';
+const { width, height } = Dimensions.get('window');
+// const fontSize = Math.min(width, height) * 0.18; // adjust 0.1 to adjust the size of the font
 
 export const globalStyles = StyleSheet.create({
   headerStyle: {
@@ -7,8 +9,7 @@ export const globalStyles = StyleSheet.create({
   headerTitleStyle: {
     fontWeight: '800',
     fontSize: 40,
-    color: 'white', 
-    backgroundColor: 'white',
+    color: 'white',
   },
   titleText: {
     fontSize: 18,
@@ -20,17 +21,18 @@ export const globalStyles = StyleSheet.create({
     padding: 20,
     alignSelf: 'center',
     justifyContent: 'flex-start',
+    backgroundColor: '#40E0D0',
   },
   TouchableOpacitybutton: {
     backgroundColor: 'blue',
     padding: 9,
     borderRadius: 5,
     alignItems: 'center',
-    margin:15
+    margin: 15
   },
   buttonText: {
     color: 'white',
-    fontSize: 35, 
+    fontSize: 35,
     fontWeight: '500',
     textAlign: 'center',
   },
@@ -38,11 +40,27 @@ export const globalStyles = StyleSheet.create({
     fontWeight: '900',
     fontSize: 40,
     alignSelf: 'center',
-    fontFamily: 'System', 
+    fontFamily: 'System',
   },
   alarmText: {
-    fontWeight: '500',
-    fontSize: 20,
+    fontWeight: '700',
+    fontSize:  Math.min(width, height) * 0.18,
     alignSelf: 'center',
   },
+  card: {
+    borderRadius: 6,
+    elevation: 3,
+    backgroundColor: '#fff',
+    shadowOffset: { width: 1, height: 1 },
+    shadowColor: '#333',
+    shadowOpacity: 0.3,
+    shadowRadius: 2,
+    marginHorizontal: 2,
+    marginVertical: 3,
+    backgroundColor: 'teal',
+  },
+  cardContent: {
+    marginHorizontal: 18,
+    marginVertical: 5,
+  }
 });
