@@ -5,24 +5,24 @@ import { AntDesign } from '@expo/vector-icons';
 
 
 export default function HomeScreen({ navigation }) {
+    
     return (
         <View style={globalStyles.container}>
             <Text style={globalStyles.screenTitle}>Home Screen</Text>
             <Button
                 title="Go to Details"
                 onPress={() => {
-                    console.log('details button pushed');
-                    navigation.navigate('Details');
+                    navigation.navigate('Details', {
+                        itemId: 86,
+                        otherParam: 'otherParam text',
+                    });
                 }}
             />
 
             <TouchableOpacity
                 style={[globalStyles.TouchableOpacitybutton, { flexDirection: 'row' }]}
                 onPress={() => {
-                    navigation.navigate('Example', {
-                        itemId: 86,
-                        otherParam: 'anything you want here',
-                    });
+                    navigation.navigate('Example');
                 }}>
                 <AntDesign name="infocirlce" size={24} color="white" style={{ marginRight: 10 }} />
                 <Text  style={globalStyles.buttonText}>Go to ExampleScreen</Text>

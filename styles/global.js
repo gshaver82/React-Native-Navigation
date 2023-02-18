@@ -38,7 +38,11 @@ export const globalStyles = StyleSheet.create({
     fontWeight: '900',
     fontSize: 40,
     alignSelf: 'center',
-    fontFamily: 'System', // or any other bold font family that you want to use
+    fontFamily: 'System', 
   },
-  
+  alarmText: {
+    fontWeight: '500',
+    fontSize: 20,
+    alignSelf: 'center',
+  },
 });

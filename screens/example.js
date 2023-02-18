@@ -1,23 +1,27 @@
 
 import React, { useState } from 'react';
-import { View, Text, Button, Platform } from 'react-native';
+import { View, Text, Button, Platform, FlatList, TouchableOpacity } from 'react-native';
 import { globalStyles } from '../styles/global';
 import DateTimePicker from '@react-native-community/datetimepicker';
+import Card from '../shared/card';
 
 export default function ExampleScreen({ route, navigation }) {
 
     const [date, setDate] = useState(new Date());
     const [showPicker, setShowPicker] = useState(false);
+    const [alarmArray, setalarmArray] = useState([]);
 
     const handlePicker = (event, selectedDate) => {
         setShowPicker(Platform.OS === 'ios'); // Hide picker on iOS when done selecting
         if (selectedDate) {
-            setDate(selectedDate);
             console.log('Selected time:', selectedDate);
+            setDate(selectedDate);
+            setalarmArray([...alarmArray, selectedDate.toString()]);
+            // setalarmArray([...alarmArray, selectedDate.hour() + ":" + selectedDate.minute().toString().padStart(2, '0')]);
+            console.log('alarmArray', alarmArray);
         }
     };
 
-    const { itemId, otherParam } = route.params;
     return (
         <View style={globalStyles.container}>
             <Text style={globalStyles.screenTitle}>Example screen</Text>
@@ -25,22 +29,22 @@ export default function ExampleScreen({ route, navigation }) {
                 <DateTimePicker
                     value={date}
                     mode="time"
-                    is24Hour={false} // Set to true if you want to use 24-hour time format
+                    is24Hour={false}
                     display="default"
                     onChange={handlePicker}
                 />
             )}
-            <Text style={globalStyles.titleText}>itemId: {JSON.stringify(route.params.itemId)}</Text>
-            <Text>otherParam: {JSON.stringify(otherParam)}</Text>
-            <Button
-                title="Go back to home"
-                onPress={() => navigation.navigate('Home')}
-            />
-
             <Button title="Set Time" onPress={() => setShowPicker(true)} />
-            <Text>{date.toTimeString()} 
+            {alarmArray.length > 0 ? (
+                <FlatList data={alarmArray} renderItem={({ item }) => (
+                    <TouchableOpacity onPress={() => console.log("pressed item")}>
+                        {/* <Card> */}
+                            <Text style={globalStyles.alarmText}>{item}</Text>
+                        {/* </Card> */}
+                    </TouchableOpacity>
+                )} />
+            ) : <Text>nothing yet </Text>}
 
-            </Text>
 
         </View>
     );
