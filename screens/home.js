@@ -28,7 +28,13 @@ export default function HomeScreen({ navigation }) {
                 <Text  style={globalStyles.buttonText}>Go to ExampleScreen</Text>
             </TouchableOpacity>
 
-
+            <TouchableOpacity
+                style={[globalStyles.TouchableOpacitybutton, { flexDirection: 'row' }]}
+                onPress={() => {
+                    navigation.navigate('Forms');
+                }}>
+                <Text  style={globalStyles.buttonText}>Go to Forms</Text>
+            </TouchableOpacity>
 
 
         </View>

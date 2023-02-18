@@ -1,4 +1,4 @@
-import { StyleSheet, Dimensions  } from 'react-native';
+import { StyleSheet, Dimensions } from 'react-native';
 const { width, height } = Dimensions.get('window');
 // const fontSize = Math.min(width, height) * 0.18; // adjust 0.1 to adjust the size of the font
 
@@ -43,11 +43,11 @@ export const globalStyles = StyleSheet.create({
   },
   alarmText: {
     fontWeight: '700',
-    fontSize:  Math.min(width, height) * 0.18,
+    fontSize: Math.min(width, height) * 0.18,
     alignSelf: 'center',
   },
   text: {
-    fontSize:  Math.min(width, height) * 0.09,
+    fontSize: Math.min(width, height) * 0.09,
     alignSelf: 'center',
   },
   card: {
@@ -65,5 +65,17 @@ export const globalStyles = StyleSheet.create({
   cardContent: {
     marginHorizontal: 18,
     marginVertical: 5,
-  }
+  },
+  input: {
+    marginBottom: 10,
+    padding: 10,
+    borderBottomColor: '#bbb',
+    borderBottomWidth: 1,
+  },
+  button: {
+    backgroundColor: 'blue',
+    color: 'white',
+    padding: 10,
+    borderRadius: 5,
+  },
 });

@@ -6,6 +6,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import ExampleScreen from './screens/example'
 import HomeScreen from './screens/home'
 import DetailsScreen from './screens/details'
+import FormsScreen from './screens/forms'
 import { globalStyles } from './styles/global';
 
 const Stack = createNativeStackNavigator();
@@ -15,8 +16,8 @@ function App() {
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Home"
         screenOptions={{
-          headerStyle: globalStyles.headerStyle,          
-          headerTitleStyle: globalStyles.headerTitleStyle,          
+          headerStyle: globalStyles.headerStyle,
+          headerTitleStyle: globalStyles.headerTitleStyle,
           headerTitleAlign: 'center',
         }}>
         <Stack.Screen
@@ -33,6 +34,11 @@ function App() {
           name="Example"
           component={ExampleScreen}
           options={{ title: 'Example' }}
+        />
+        <Stack.Screen
+          name="Forms"
+          component={FormsScreen}
+          options={{ title: 'Forms' }}
         />
       </Stack.Navigator>
     </NavigationContainer>
