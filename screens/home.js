@@ -36,7 +36,13 @@ export default function HomeScreen({ navigation }) {
                 <Text  style={globalStyles.buttonText}>Go to Forms</Text>
             </TouchableOpacity>
 
-
+            <TouchableOpacity
+                style={[globalStyles.TouchableOpacitybutton, { flexDirection: 'row' }]}
+                onPress={() => {
+                    navigation.navigate('Contacts');
+                }}>
+                <Text  style={globalStyles.buttonText}>Go to Contacts</Text>
+            </TouchableOpacity>
         </View>
     );
 }

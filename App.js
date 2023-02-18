@@ -7,6 +7,7 @@ import ExampleScreen from './screens/example'
 import HomeScreen from './screens/home'
 import DetailsScreen from './screens/details'
 import FormsScreen from './screens/forms'
+import ContactsScreen from './screens/contacts'
 import { globalStyles } from './styles/global';
 
 const Stack = createNativeStackNavigator();
@@ -39,6 +40,11 @@ function App() {
           name="Forms"
           component={FormsScreen}
           options={{ title: 'Forms' }}
+        />
+        <Stack.Screen
+          name="Contacts"
+          component={ContactsScreen}
+          options={{ title: 'Contacts' }}
         />
       </Stack.Navigator>
     </NavigationContainer>
