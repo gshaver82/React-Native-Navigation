@@ -1,9 +1,9 @@
-
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Text, Button, Platform, FlatList, TouchableOpacity } from 'react-native';
 import { globalStyles } from '../styles/global';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import Card from '../shared/card';
+import moment from 'moment';
 
 export default function ExampleScreen() {
 
@@ -11,15 +11,20 @@ export default function ExampleScreen() {
     const [showPicker, setShowPicker] = useState(false);
     const [alarmArray, setalarmArray] = useState([]);
 
+    useEffect(() => {
+        console.log('Updated alarmArray:', alarmArray);
+    }, [alarmArray]);
+
     const handlePicker = (event, selectedDate) => {
-        setShowPicker(Platform.OS === 'ios'); // Hide picker on iOS when done selecting
+        setShowPicker(Platform.OS === 'ios');
         if (selectedDate) {
-            console.log('Selected time:', selectedDate);
-            setDate(selectedDate);
-            // setalarmArray([...alarmArray, selectedDate.toString()]);
-            setalarmArray([...alarmArray, selectedDate.hour() + ":" + selectedDate.minute().toString().padStart(2, '0')]);
-            console.log('alarmArray', alarmArray);
+            const formattedDate = moment(selectedDate).format('HH:mm');
+            setalarmArray([...alarmArray, formattedDate]);
         }
+    };
+
+    const keyExtractor = (item, index) => {
+        return index.toString();
     };
 
     return (
@@ -36,14 +41,18 @@ export default function ExampleScreen() {
             )}
             <Button title="Set Time" onPress={() => setShowPicker(true)} />
             {alarmArray.length > 0 ? (
-                <FlatList data={alarmArray} renderItem={({ item }) => (
-                    <TouchableOpacity onPress={() => console.log("pressed item")}>
-                        <Card>
-                            <Text style={globalStyles.alarmText}>{item}</Text>
-                        </Card>
-                    </TouchableOpacity>
-                )} />
-            ) : <Text>nothing yet </Text>}
+                <FlatList
+                    data={alarmArray}
+                    keyExtractor={keyExtractor}
+                    renderItem={({ item }) => (
+                        <TouchableOpacity onPress={() => console.log("pressed item")}>
+                            <Card>
+                                <Text style={globalStyles.alarmText}>{item}</Text>
+                            </Card>
+                        </TouchableOpacity>
+                    )}
+                />
+            ) : <Text>No alarms set yet</Text>}
         </View>
     );
 }
