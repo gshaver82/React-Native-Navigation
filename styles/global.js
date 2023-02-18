@@ -18,8 +18,7 @@ export const globalStyles = StyleSheet.create({
   },
   container: {
     flex: 1,
-    padding: 20,
-    alignSelf: 'center',
+    padding: 0,
     justifyContent: 'flex-start',
     backgroundColor: '#40E0D0',
   },
@@ -45,6 +44,10 @@ export const globalStyles = StyleSheet.create({
   alarmText: {
     fontWeight: '700',
     fontSize:  Math.min(width, height) * 0.18,
+    alignSelf: 'center',
+  },
+  text: {
+    fontSize:  Math.min(width, height) * 0.09,
     alignSelf: 'center',
   },
   card: {

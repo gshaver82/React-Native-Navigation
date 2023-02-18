@@ -11,7 +11,6 @@ export default function ExampleScreen() {
     const [alarmArray, setalarmArray] = useState([]);
 
     useEffect(() => {
-        console.log('Updated alarmArray:', alarmArray);
     }, [alarmArray]);
 
     const handlePicker = (event, selectedDate) => {
@@ -37,7 +36,6 @@ export default function ExampleScreen() {
                     is24Hour={false}
                     display="default"
                     onChange={handlePicker}
-                    textColor="red" 
                 />
             )}
             <Button title="Set Time" onPress={() => setShowPicker(true)} />
@@ -53,7 +51,7 @@ export default function ExampleScreen() {
                         </TouchableOpacity>
                     )}
                 />
-            ) : <Text>No alarms set yet</Text>}
+            ) : <Text style={globalStyles.text}>No alarms set yet</Text>}
         </View>
     );
 }
