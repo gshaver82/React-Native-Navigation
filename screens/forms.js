@@ -1,12 +1,12 @@
 import React from 'react';
-import { View, TextInput, Button } from 'react-native';
+import { View, TextInput, TouchableOpacity, Text } from 'react-native';
 import { Formik } from 'formik';
 import { globalStyles } from '../styles/global';
 
 const SignupForm = () => {
     return (
         <Formik
-            initialValues={{ name : '', phoneNumber: '' }}
+            initialValues={{ name: '', phoneNumber: '' }}
             onSubmit={(values) => console.log(values)}
         >
             {({ handleChange, handleBlur, handleSubmit, values }) => (
@@ -26,11 +26,13 @@ const SignupForm = () => {
                         value={values.phoneNumber}
                         keyboardType="numeric"
                     />
-                    <Button
-                        title="Sign Up"
+                    <TouchableOpacity
+                        style={[globalStyles.TouchableOpacitybutton, { flexDirection: 'row' }]}
                         onPress={handleSubmit}
-                        style={globalStyles.button}
-                    />
+                        title="Sign Up"
+                    >
+                        <Text style={globalStyles.buttonText}>Sign Up</Text>
+                    </TouchableOpacity>
                 </View>
             )}
         </Formik>

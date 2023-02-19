@@ -1,5 +1,5 @@
 
-import { View, Text, Button, TouchableOpacity, TurboModuleRegistry, Modal } from 'react-native';
+import { View, Text, Button, TouchableOpacity, Modal } from 'react-native';
 import { useState } from 'react';
 
 import { globalStyles } from '../styles/global';
