@@ -5,7 +5,7 @@ import { useState } from 'react';
 import { globalStyles } from '../styles/global';
 import { AntDesign } from '@expo/vector-icons';
 
-
+//TODO factor out touchableopacity button as a button component
 export default function HomeScreen({ navigation }) {
 
     const [showModal, setshowModal] = useState(false);
