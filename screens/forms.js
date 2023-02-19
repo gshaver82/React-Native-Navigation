@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, TextInput, TouchableOpacity, Text } from 'react-native';
 import { Formik } from 'formik';
-import * as Yup from 'yup'; // import Yup for validation
+import * as Yup from 'yup';
 import { globalStyles } from '../styles/global';
 
 const validationSchema = Yup.object().shape({
@@ -11,14 +11,20 @@ const validationSchema = Yup.object().shape({
     phoneNumber: Yup.string()
         .min(10, 'Too short!')
         .max(10, 'Too long!')
-        .required('Phone number is required'),
+        .required('Phone number is required')
+        .test('is-num', 'Phone number must contain only numbers', (value) => {
+            if (value) {
+                return /^[0-9]+$/.test(value);
+            }
+            return true;
+        }),
 });
 
 const SignupForm = () => {
     return (
         <Formik
             initialValues={{ name: '', phoneNumber: '' }}
-            validationSchema={validationSchema} // add validation schema
+            validationSchema={validationSchema}
             onSubmit={(values) => console.log(values)}
         >
             {({ handleChange, handleBlur, handleSubmit, values, errors, touched }) => (
