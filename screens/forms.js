@@ -6,25 +6,25 @@ import { globalStyles } from '../styles/global';
 const SignupForm = () => {
     return (
         <Formik
-            initialValues={{ email: '', password: '' }}
+            initialValues={{ name : '', phoneNumber: '' }}
             onSubmit={(values) => console.log(values)}
         >
             {({ handleChange, handleBlur, handleSubmit, values }) => (
                 <View>
                     <TextInput
                         style={globalStyles.input}
-                        placeholder="Email"
-                        onChangeText={handleChange('email')}
-                        onBlur={handleBlur('email')}
-                        value={values.email}
+                        placeholder="name"
+                        onChangeText={handleChange('name')}
+                        onBlur={handleBlur('name')}
+                        value={values.name}
                     />
                     <TextInput
                         style={globalStyles.input}
-                        placeholder="Password"
-                        secureTextEntry
-                        onChangeText={handleChange('password')}
-                        onBlur={handleBlur('password')}
-                        value={values.password}
+                        placeholder="phoneNumber"
+                        onChangeText={handleChange('phoneNumber')}
+                        onBlur={handleBlur('phoneNumber')}
+                        value={values.phoneNumber}
+                        keyboardType="numeric"
                     />
                     <Button
                         title="Sign Up"
