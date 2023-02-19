@@ -4,6 +4,9 @@ import { Formik } from 'formik';
 import * as Yup from 'yup';
 import { globalStyles } from '../styles/global';
 
+
+//validation funky but works.
+//something to do with on blur or on change
 const validationSchema = Yup.object().shape({
     name: Yup.string()
         .min(2, 'Too short!')
