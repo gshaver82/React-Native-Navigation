@@ -26,6 +26,8 @@ const SignupForm = () => {
             initialValues={{ name: '', phoneNumber: '' }}
             validationSchema={validationSchema}
             onSubmit={(values) => console.log(values)}
+            validateOnChange={true}
+            validateOnBlur={true}
         >
             {({ handleChange, handleBlur, handleSubmit, values, errors, touched }) => (
                 <View>
@@ -36,7 +38,7 @@ const SignupForm = () => {
                         onBlur={handleBlur('name')}
                         value={values.name}
                     />
-                    {touched.name && errors.name && (
+                    { errors.name && (
                         <Text style={globalStyles.errorText}>{errors.name}</Text>
                     )}
                     <TextInput
